@@ -11,7 +11,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Raghvendra Pratap Singh',
-  description: 'Second-year medical student building Python scraping systems, AI tooling, and research-oriented data workflows.',
+  description: 'Full-stack engineer building scraping frameworks, AI platforms, MCP servers, and desktop tools — while studying medicine.',
 };
 
 export default function RootLayout({

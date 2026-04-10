@@ -4,7 +4,7 @@ import { Terminal, Activity } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Portfolio://About',
-  description: 'About Raghvendra Pratap Singh, medical student, developer, and research co-author.',
+  description: 'About Raghvendra Pratap Singh — full-stack engineer, scraping framework author, AI tooling developer, and medical student.',
 };
 
 export default function About() {
@@ -25,17 +25,17 @@ export default function About() {
           <StaggerContainer className="space-y-6 text-gray-400 font-mono text-sm leading-relaxed">
             <StaggerItem>
               <p className="border-l-2 border-primary/50 pl-4">
-                <span className="text-primary">&gt;</span> I am a second-year medical student at the University of Nis, Faculty of Medicine, Serbia, enrolled in the English program. My academic training shapes how I work: I approach software with the same emphasis on rigor, structure, and careful evaluation that medicine demands.
+                <span className="text-primary">&gt;</span> Full-stack engineer with 5+ years of freelance experience, currently a second-year medical student at the University of Nis, Serbia. I approach software with the same rigor that medicine demands — structured thinking, careful evaluation, and production-grade output.
               </p>
             </StaggerItem>
             <StaggerItem>
               <p className="border-l-2 border-primary/50 pl-4">
-                <span className="text-primary">&gt;</span> Beyond medicine, I build Python, TypeScript, and C# projects focused on scraping, AI tooling, automation, and structured data workflows. My work includes dynamic-site data extraction with Playwright, custom Model Context Protocol servers, desktop applications, and research-oriented pipelines that turn unstructured web data into usable datasets.
+                <span className="text-primary">&gt;</span> I build across the full stack: production scraping frameworks with middleware pipelines and LLM extraction, microservices AI platforms with RAG pipelines and multi-provider gateways, MCP servers (3 in production, 1 published to npm with 122 tests), Windows security scanners with 16 native API checks, and SaaS platforms with payments, video calls, and monitoring.
               </p>
             </StaggerItem>
             <StaggerItem>
               <p className="border-l-2 border-primary/50 pl-4">
-                <span className="text-primary">&gt;</span> I am also a co-author on a 2026 faculty research paper from the Department of Medical Statistics and Informatics at the Faculty of Medicine, University of Nis. The study examined TikTok content as a source of education in medical statistics and used a Python-based workflow to collect and analyze public video data.
+                <span className="text-primary">&gt;</span> Languages: Python, TypeScript, C#/.NET, C++, SQL. Frameworks: Next.js, FastAPI, React, Electron, Tauri, Qt. Infrastructure: Docker Compose, PostgreSQL/pgvector, Redis, Qdrant, n8n. Co-author on a 2026 research paper on TikTok content in medical statistics education.
               </p>
             </StaggerItem>
           </StaggerContainer>
@@ -78,8 +78,8 @@ export default function About() {
             <div className="space-y-4 text-xs font-mono text-gray-400">
               <div className="space-y-1">
                 <div className="flex justify-between text-white">
-                  <span>Python / Data</span>
-                  <span>Core Strength</span>
+                  <span>Web Scraping</span>
+                  <span>Framework Author</span>
                 </div>
                 <div className="w-full bg-gray-900 h-1">
                   <div className="bg-primary h-1" style={{ width: '95%' }}></div>
@@ -88,8 +88,18 @@ export default function About() {
 
               <div className="space-y-1">
                 <div className="flex justify-between text-white">
-                  <span>AI Tooling</span>
-                  <span>Hands-on</span>
+                  <span>AI / LLM / MCP</span>
+                  <span>3 Production Servers</span>
+                </div>
+                <div className="w-full bg-gray-900 h-1">
+                  <div className="bg-primary h-1" style={{ width: '92%' }}></div>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <div className="flex justify-between text-white">
+                  <span>Full-Stack</span>
+                  <span>SaaS Shipped</span>
                 </div>
                 <div className="w-full bg-gray-900 h-1">
                   <div className="bg-primary h-1" style={{ width: '90%' }}></div>
@@ -98,11 +108,21 @@ export default function About() {
 
               <div className="space-y-1">
                 <div className="flex justify-between text-white">
-                  <span>Web Scraping</span>
-                  <span>Project-Based</span>
+                  <span>Desktop / Systems</span>
+                  <span>.NET + Qt + Electron</span>
                 </div>
                 <div className="w-full bg-gray-900 h-1">
-                  <div className="bg-primary h-1" style={{ width: '88%' }}></div>
+                  <div className="bg-primary h-1" style={{ width: '85%' }}></div>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <div className="flex justify-between text-white">
+                  <span>Infrastructure</span>
+                  <span>Docker + CI/CD</span>
+                </div>
+                <div className="w-full bg-gray-900 h-1">
+                  <div className="bg-primary h-1" style={{ width: '82%' }}></div>
                 </div>
               </div>
             </div>

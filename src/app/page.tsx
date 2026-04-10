@@ -68,7 +68,7 @@ export default function Home() {
             <span className="text-primary flex items-center gap-4 halation">
               <span className="text-white">+</span>{' '}
               <Typewriter
-                words={['Python Builder', 'AI Tooling Developer', 'Scraping Engineer']}
+                words={['Scraping Framework Author', 'AI Platform Builder', 'MCP Server Developer', 'Full-Stack Engineer']}
                 loop={true}
                 cursor
                 cursorStyle="_"
@@ -86,9 +86,9 @@ export default function Home() {
 
             <p className="text-base md:text-lg text-gray-400 leading-relaxed pt-2">
               <span className="text-primary mr-2 halation">SYS.OUT&gt;</span>
-              Second-year medical student building real Python scraping systems, AI tooling, and
-              research-oriented data pipelines. I work across medicine, automation, and software
-              to turn messy information into usable systems and structured evidence.
+              Full-stack engineer with 5+ years shipping production scraping frameworks, AI
+              platforms with RAG pipelines, MCP servers (3 in production, 1 on npm), desktop security
+              tools, and SaaS applications. Currently studying medicine.
             </p>
           </div>
         </FadeIn>
@@ -119,7 +119,7 @@ export default function Home() {
           <div className="flex items-center justify-between border-b-2 border-muted pb-4">
             <h2 className="text-xl font-bold tracking-widest text-white uppercase flex items-center gap-4 halation-white">
               <span className="bg-white text-black px-2 py-1 text-xs">FIT</span>
-              Why I Match Scraping And AI Tooling Roles
+              Core Capabilities
             </h2>
             <span className="text-xs text-gray-400 font-mono bg-white/5 px-2 py-1 border border-white/10">
               EVIDENCE-BASED
@@ -131,56 +131,56 @@ export default function Home() {
           <StaggerItem>
             <div className="hud-panel p-6 h-full bg-black/40">
               <div className="text-[10px] tracking-widest text-primary mb-3">
-                01 // PYTHON + PLAYWRIGHT
+                01 // WEB SCRAPING
               </div>
               <h3 className="text-white font-bold uppercase tracking-wide mb-2">
-                Dynamic Site Collection
+                Scraping Frameworks
               </h3>
               <p className="text-gray-400 text-xs leading-relaxed">
-                Built scraping workflows for public TikTok data using browser automation,
-                structured exports, deduplication, and analysis-ready outputs.
+                Built Scalpel — production framework with middleware pipeline, auto-escalation
+                (HTTP to Playwright), LLM extraction, proxy circuit breakers. Tested on 12k+ pages.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="hud-panel p-6 h-full bg-black/40">
               <div className="text-[10px] tracking-widest text-primary mb-3">
-                02 // RESEARCH WORK
+                02 // AI PLATFORMS
               </div>
               <h3 className="text-white font-bold uppercase tracking-wide mb-2">
-                Co-Authored University Paper
+                RAG Pipelines And AI Gateways
               </h3>
               <p className="text-gray-400 text-xs leading-relaxed">
-                Co-authored a 2026 faculty research paper on TikTok content and medical statistics
-                education using a Python-based data collection workflow.
+                Elysium Sanctuary: 7-container Docker stack with LiteLLM multi-provider gateway,
+                document ingestion (PDF/DOCX/URL/OCR), pgvector semantic search.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="hud-panel p-6 h-full bg-black/40">
               <div className="text-[10px] tracking-widest text-primary mb-3">
-                03 // AI TOOLING
+                03 // MCP SERVERS
               </div>
               <h3 className="text-white font-bold uppercase tracking-wide mb-2">
-                MCP And Structured Workflows
+                3 Production MCP Integrations
               </h3>
               <p className="text-gray-400 text-xs leading-relaxed">
-                Built AI-facing tooling with structured interfaces for note search, writing, graph
-                traversal, and practical developer workflows.
+                Obsidian MCP Pro (npm, 122 tests, graph traversal), Vertex AI MCP (multimodal),
+                Blender MCP (dual-threaded architecture solving single-thread constraint).
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="hud-panel p-6 h-full bg-black/40">
               <div className="text-[10px] tracking-widest text-primary mb-3">
-                04 // DOMAIN CONTEXT
+                04 // FULL STACK
               </div>
               <h3 className="text-white font-bold uppercase tracking-wide mb-2">
-                Medicine Plus Technical Work
+                SaaS, Desktop, And Infrastructure
               </h3>
               <p className="text-gray-400 text-xs leading-relaxed">
-                My medical training reinforces how I evaluate information quality, document
-                findings, and build systems that are useful beyond demos.
+                Production SaaS with payments and video calls. Windows security scanner with 16
+                native API checks. Docker infrastructure with n8n, Redis, and Zep AI memory.
               </p>
             </div>
           </StaggerItem>

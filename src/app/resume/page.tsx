@@ -33,9 +33,9 @@ export default function ResumePage() {
       <FadeIn delay={0.15}>
         <div className="hud-panel p-6 border-l-4 border-l-primary bg-black/60">
           <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-            The resume is the sharper option for the Mindrift scraping roles. The CV keeps the wider
-            picture visible, including medical training, research contribution, and the broader
-            software work behind the portfolio.
+            The resume is optimized for technical roles: web scraping, AI/ML, and full-stack engineering.
+            The CV provides the broader picture, including medical training, research contributions,
+            and the full project range behind this portfolio.
           </p>
         </div>
       </FadeIn>
@@ -61,17 +61,16 @@ export default function ResumePage() {
             </div>
 
             <p className="text-sm text-gray-400 font-mono leading-relaxed mb-6">
-              Tuned for scraping, browser automation, AI tooling, and research-oriented technical
-              roles.
+              Optimized for web scraping, AI/ML, full-stack engineering, and technical freelance roles.
             </p>
 
             <div className="space-y-3 text-sm text-gray-400 font-mono flex-grow">
               <div className="border-l-2 border-primary/30 pl-4">{resumeProfile.role}</div>
               <div className="border-l-2 border-primary/30 pl-4">
-                Built around Python, Playwright, structured exports, MCP tooling, and research work.
+                Covers scraping frameworks, AI platforms, MCP servers, desktop tools, and SaaS.
               </div>
               <div className="border-l-2 border-primary/30 pl-4">
-                Best fit for the Mindrift scraping-focused roles.
+                Best fit for technical and engineering-focused roles.
               </div>
             </div>
 

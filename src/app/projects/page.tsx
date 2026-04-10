@@ -5,7 +5,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from '@/components/FadeIn';
 
 export const metadata: Metadata = {
   title: 'Selected Work',
-  description: 'Selected scraping, AI tooling, research, and software projects built by Raghvendra Pratap Singh.',
+  description: 'Production projects: scraping frameworks, AI platforms, MCP servers, desktop security tools, and SaaS — by Raghvendra Pratap Singh.',
 };
 
 type ProjectCard = {
@@ -20,84 +20,135 @@ type ProjectCard = {
 
 const primaryProjects: ProjectCard[] = [
   {
-    id: 'TIKTOK_PIPELINE',
-    title: 'TikTok Scraper and Research Export Pipeline',
+    id: 'SCALPEL',
+    title: 'Scalpel — Production Web Scraping Framework',
     description:
-      'A Python scraping workflow for collecting TikTok video data from dynamic pages, normalizing outputs, deduplicating records, and exporting structured datasets for analysis. The project supported a university research study on TikTok content in medical statistics education.',
-    tags: ['Python', 'Playwright', 'SQLite', 'JSONL', 'CSV', 'Research'],
-    href: 'https://github.com/rps321321/tiktok-scraper',
-    actionLabel: 'View Repo',
-    status: 'ONLINE',
+      'Middleware-based scraping framework with auto-escalation from HTTP to Playwright, LLM-powered extraction via OpenRouter/Ollama/vLLM, proxy circuit breakers with cooldown, per-domain concurrency semaphores, and YAML-driven configuration. Tested against 12,000+ pages.',
+    tags: ['Python', 'httpx', 'Playwright', 'OpenAI SDK', 'Pydantic', 'Typer'],
+    actionLabel: 'Private — code samples available',
+    status: 'PRODUCTION',
+  },
+  {
+    id: 'TIKTOK_PIPELINE',
+    title: 'TikTok Data Collector (Released v39)',
+    description:
+      'Qt desktop app with 39 iterative releases collecting 32+ fields per video. Research-grade export (Excel with codebook, SPSS with .sps syntax, R-compatible CSV). Proxy health scoring, rate limiting with jitter, cron scheduler, SQLite deduplication with O(1) cache, and t-test statistical analysis.',
+    tags: ['Python', 'Qt', 'Playwright', 'SQLite', 'pandas', 'scipy'],
+    actionLabel: 'Private — code samples available',
+    status: 'RELEASED v39',
+  },
+  {
+    id: 'SANCTUARY',
+    title: 'Elysium Sanctuary — AI Knowledge Platform',
+    description:
+      'Monorepo microservices platform with document ingestion pipeline (PDF/DOCX/URL/YouTube/OCR to vector embeddings), LiteLLM multi-provider AI gateway (GPT-4o, Claude, Gemini), 7-container Docker stack, pgvector semantic search, and Tauri desktop client.',
+    tags: ['FastAPI', 'LiteLLM', 'pgvector', 'Next.js', 'Docker', 'Tauri'],
+    actionLabel: 'Private — architecture available',
+    status: 'ACTIVE',
+  },
+  {
+    id: 'NEURAL_LIBRARY',
+    title: 'Neural Library Search — 45,000+ Books',
+    description:
+      'GPU-accelerated semantic search engine over 45k+ public domain eBooks. BeautifulSoup scraping from Project Gutenberg, sentence-transformers embedding (all-MiniLM-L6-v2), thread-safe CUDA locks, Qdrant vector storage, resumable background ingestion.',
+    tags: ['Python', 'FastAPI', 'sentence-transformers', 'Qdrant', 'CUDA', 'Docker'],
+    actionLabel: 'Private — demo available',
+    status: 'PRODUCTION',
+  },
+  {
+    id: 'OBSIDIAN_MCP',
+    title: 'Obsidian MCP Pro (npm published)',
+    description:
+      'Published npm package (v1.1.1, 122 tests) providing 27+ tools for AI vault access: full-text search, frontmatter queries, N-hop graph traversal, orphan/broken link detection, canvas manipulation, and multi-platform vault auto-detection.',
+    tags: ['TypeScript', 'MCP SDK', 'Zod', 'Vitest', 'npm'],
+    href: 'https://github.com/rps321321/obsidian-mcp-pro',
+    actionLabel: 'View on npm',
+    status: 'PUBLISHED',
   },
   {
     id: 'MED_STATS_2026',
     title: 'Co-Authored Medical Statistics Research Paper',
     description:
-      'Co-authored a faculty research paper at the University of Nis examining TikTok content as a source of education in medical statistics. The work combined medical evaluation frameworks with Python-based public data collection and structured analysis.',
-    tags: ['Research', 'Medicine', 'Medical Statistics', 'TikTok', 'Python'],
+      'Co-authored a faculty research paper examining TikTok content as a source of education in medical statistics. Built the Python + Playwright data collection workflow with quality scoring and statistical analysis.',
+    tags: ['Research', 'Medicine', 'Python', 'Playwright', 'scipy'],
     actionLabel: 'Listed on site',
-    status: 'PUBLISHED WORK',
-  },
-  {
-    id: 'OBSIDIAN_MCP',
-    title: 'Obsidian MCP Server',
-    description:
-      'A TypeScript MCP server that gives AI assistants structured access to an Obsidian vault, including note search, frontmatter-aware reading, writing, link analysis, graph traversal, and canvas support.',
-    tags: ['TypeScript', 'MCP', 'Obsidian', 'AI Tooling', 'Vitest'],
-    href: 'https://github.com/rps321321/obsidian-mcp-pro',
-    actionLabel: 'View Repo',
-    status: 'ACTIVE',
-  },
-  {
-    id: 'AUTOMATION_STACK',
-    title: 'Automation and AI Workflow Stack',
-    description:
-      'A collection of personal automation and AI-tooling systems connecting local tools, MCP servers, scripted workflows, and service integrations to speed up development, research, and repetitive tasks.',
-    tags: ['Python', 'n8n', 'Automation', 'APIs', 'Workflows'],
-    actionLabel: 'Private system summary',
-    status: 'BACKGROUND',
+    status: 'PUBLISHED',
   },
 ];
 
 const secondaryProjects: ProjectCard[] = [
   {
     id: 'PC_GUARDIAN',
-    title: 'PC Guardian',
+    title: 'PC Guardian — Windows Security Scanner',
     description:
-      'A Windows desktop security scanner built in C# that checks for remote-access exposure, monitors system activity, records scan history in SQLite, and provides plain-language findings for end users.',
-    tags: ['C#', '.NET', 'WinForms', 'SQLite', 'Security Tooling'],
+      'Portable 65MB .NET 8 security scanner with 16 native API checks: RDP, remote access apps, open ports, firewall, DNS hijacking, USB history, crypto miner detection, BitLocker/TPM/Secure Boot status. One-click quarantine, PDF/HTML reports, built-in IT server.',
+    tags: ['C#', '.NET 8', 'WinForms', 'SQLite', 'P/Invoke', 'WMI'],
     href: 'https://github.com/rps321321/pc-guardian',
     actionLabel: 'View Repo',
-    status: 'ACTIVE',
+    status: 'PRODUCTION',
   },
   {
-    id: 'PC_GUARDIAN_REMOTE',
-    title: 'PC Guardian Remote',
+    id: 'VERTEX_MCP',
+    title: 'Vertex AI MCP — Multimodal AI Server',
     description:
-      'A companion remote access and terminal-sharing utility for PC Guardian that manages a secure share flow, local shell access, and remote connection UX in a desktop application.',
-    tags: ['C#', '.NET', 'Remote Shell', 'Desktop UX'],
-    href: 'https://github.com/rps321321/pc-guardian-remote',
-    actionLabel: 'View Repo',
-    status: 'ACTIVE',
-  },
-  {
-    id: 'ELYSIUM',
-    title: 'Elysium',
-    description:
-      'A larger AI-first web application built with Next.js, Gemini integrations, rich interactive UI, and multiple app surfaces for content generation and study workflows.',
-    tags: ['Next.js', 'TypeScript', 'Gemini API', 'Product Build'],
-    href: 'https://github.com/rps321321/elysium-dev',
-    actionLabel: 'View Repo',
-    status: 'ACTIVE',
+      'MCP server orchestrating Google multimodal stack: Gemini image gen, Veo 3.1 video gen with long-polling, TTS with PCM-to-WAV conversion, and Gemini CLI agent management with approval modes.',
+    tags: ['Python', 'MCP', 'Vertex AI', 'Gemini', 'google-genai'],
+    actionLabel: 'Private — architecture available',
+    status: 'PRODUCTION',
   },
   {
     id: 'BLENDER_MCP',
-    title: 'Blender MCP',
+    title: 'Blender MCP — Thread-Safe 3D Control',
     description:
-      'An MCP server and Blender add-on bridge that lets AI assistants inspect scenes, execute Python in Blender, and trigger renders through a thread-safe server-to-addon workflow.',
-    tags: ['Python', 'MCP', 'Blender', 'TCP', 'Automation'],
-    actionLabel: 'Local project summary',
-    status: 'LOCAL WORK',
+      'Dual-threaded MCP server solving Blender single-thread constraint. Background TCP socket server + main-thread timer polling via bpy.app.timers. AI assistants can execute bpy code, inspect scenes, and render.',
+    tags: ['Python', 'FastMCP', 'Blender', 'TCP', 'Threading'],
+    actionLabel: 'Local project',
+    status: 'PRODUCTION',
+  },
+  {
+    id: 'NUSIC',
+    title: 'Nusic — Discord Music Bot + Dashboard',
+    description:
+      'Full music bot with FFmpeg DSP pipeline (bassboost, nightcore, vaporwave, 8D, karaoke), real-time Socket.io web dashboard, Discord OAuth, SQLite playlists, 20+ slash commands.',
+    tags: ['discord.js', 'Express', 'Socket.io', 'FFmpeg', 'SQLite'],
+    actionLabel: 'Private',
+    status: 'STABLE v1.0',
+  },
+  {
+    id: 'ELYSIUM',
+    title: 'Elysium — AI Study Companion',
+    description:
+      'AI study platform with streaming Gemini responses (2.5-flash/pro, 3-pro), InstantDB real-time sync, Three.js constellation backgrounds, rate limiting per-user/endpoint, and security headers.',
+    tags: ['Next.js 15', 'React 19', 'Gemini SDK', 'InstantDB', 'Three.js'],
+    actionLabel: 'Private — demo available',
+    status: 'PRODUCTION',
+  },
+  {
+    id: 'HOUSEHUB',
+    title: 'HouseHub — Shared Expense Tracker PWA',
+    description:
+      'Real-time household expense management with InstantDB, automated settlement calculations, dual-currency support, spending anomaly detection, and offline PWA support.',
+    tags: ['Next.js', 'InstantDB', 'Recharts', 'PWA', 'Playwright E2E'],
+    actionLabel: 'Private',
+    status: 'PRODUCTION',
+  },
+  {
+    id: 'N8N_INFRA',
+    title: 'Enterprise Workflow Infrastructure',
+    description:
+      'Production n8n deployment with PostgreSQL/pgvector, Redis, Apache Tika document indexing, Zep AI session memory, Caddy auto-TLS, daily backups with 14-day retention.',
+    tags: ['Docker', 'n8n', 'PostgreSQL', 'Redis', 'Zep', 'Caddy'],
+    actionLabel: 'Private infrastructure',
+    status: 'DEPLOYED',
+  },
+  {
+    id: 'CREATIVE_STUDIO',
+    title: 'Elysium Creative Studio',
+    description:
+      'Cross-platform drawing app (Electron desktop + PWA web). Excalidraw canvas, pressure-sensitive freehand drawing, IndexedDB persistence, service worker with auto-update.',
+    tags: ['React 19', 'Vite', 'Excalidraw', 'Electron', 'PWA'],
+    actionLabel: 'Private',
+    status: 'PRODUCTION',
   },
 ];
 
@@ -227,17 +278,17 @@ export default function Projects() {
       <FadeIn delay={0.15}>
         <div className="hud-panel p-6 border-l-4 border-l-primary bg-black/60">
           <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-            This page is intentionally weighted toward the work most relevant to scraping, AI
-            tooling, and research-driven data workflows. If you are reviewing this portfolio for
-            the Mindrift web scraping roles, start with the TikTok pipeline, the research paper,
-            and the MCP work below.
+            Production systems spanning web scraping frameworks, AI/ML platforms, MCP servers,
+            desktop security tools, and SaaS applications. Core projects demonstrate middleware
+            architecture, GPU-accelerated search, multi-provider AI gateways, and research-grade
+            data pipelines.
           </p>
         </div>
       </FadeIn>
 
       <ProjectSection
-        title="Selected Work For Scraping And AI Tooling"
-        subtitle="START HERE FOR MINDRIFT REVIEW"
+        title="Core Engineering Work"
+        subtitle="SCRAPING // AI // DATA PIPELINES // MCP"
         projects={primaryProjects}
         accent="primary"
       />
@@ -245,9 +296,8 @@ export default function Projects() {
       <FadeIn delay={0.2}>
         <div className="hud-panel p-6 border-l-4 border-l-secondary bg-black/60">
           <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-            The projects below broaden the picture beyond scraping. They are included to show
-            engineering range across desktop applications, larger product work, systems tooling,
-            and local automation-heavy projects.
+            Engineering range beyond scraping: desktop security tools, music bots with audio DSP,
+            real-time SaaS platforms, workflow automation infrastructure, and cross-platform apps.
           </p>
         </div>
       </FadeIn>
