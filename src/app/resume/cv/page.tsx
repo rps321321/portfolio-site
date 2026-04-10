@@ -64,6 +64,8 @@ export default function CvDocumentPage() {
           </div>
         </header>
 
+        <div className="print-editorial-rule" />
+
         <section className="print-focus-strip">
           <div className="print-focus-item">
             <span className="print-focus-label">Education</span>
@@ -83,12 +85,17 @@ export default function CvDocumentPage() {
           <div className="cv-main">
             <section className="print-section">
               <h2>Education</h2>
-              <div className="space-y-4">
-                {cvSections.education.map((item) => (
-                  <div key={item.heading}>
-                    <h3>{item.heading}</h3>
-                    <p className="print-stack">{item.meta}</p>
-                    <p>{item.detail}</p>
+              <div className="print-entry-list compact">
+                {cvSections.education.map((item, index) => (
+                  <div key={item.heading} className="print-entry-card project-card">
+                    <div className="print-entry-top">
+                      <span className="print-entry-index">{String(index + 1).padStart(2, '0')}</span>
+                      <div className="print-entry-copy">
+                        <h3>{item.heading}</h3>
+                        <p className="print-stack">{item.meta}</p>
+                        <p>{item.detail}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -96,14 +103,16 @@ export default function CvDocumentPage() {
 
             <section className="print-section">
               <h2>Research</h2>
-              <div className="space-y-4">
+              <div className="print-entry-list compact">
                 {cvSections.research.map((item, index) => (
-                  <div key={item.heading}>
-                    {index > 0 ? <div className="print-divider" /> : null}
-                    <div className="pt-3">
-                      <h3>{item.heading}</h3>
-                      <p className="print-stack">{item.meta}</p>
-                      <p>{item.detail}</p>
+                  <div key={item.heading} className="print-entry-card project-card">
+                    <div className="print-entry-top">
+                      <span className="print-entry-index">{String(index + 1).padStart(2, '0')}</span>
+                      <div className="print-entry-copy">
+                        <h3>{item.heading}</h3>
+                        <p className="print-stack">{item.meta}</p>
+                        <p>{item.detail}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -111,7 +120,7 @@ export default function CvDocumentPage() {
             </section>
           </div>
 
-          <aside className="cv-side">
+          <aside className="cv-side print-side-panel">
             <section className="print-section print-card">
               <h2>Technical Focus</h2>
               <div className="space-y-4">

@@ -81,6 +81,8 @@ export default function ResumeDocumentPage() {
           </div>
         </header>
 
+        <div className="print-editorial-rule" />
+
         <section className="print-focus-strip">
           <div className="print-focus-item">
             <span className="print-focus-label">Primary Focus</span>
@@ -97,7 +99,7 @@ export default function ResumeDocumentPage() {
         </section>
 
         <section className="resume-layout">
-          <aside className="resume-sidebar">
+          <aside className="resume-sidebar print-side-panel">
             <section className="print-section print-card">
               <h2>Professional Summary</h2>
               <p>{resumeSummary}</p>
@@ -150,18 +152,23 @@ export default function ResumeDocumentPage() {
           <div className="resume-main">
             <section className="print-section">
               <h2>Relevant Experience</h2>
-              <div className="space-y-6">
-                {resumeExperience.map((item) => (
-                  <div key={item.title}>
-                    <div className="print-row">
-                      <h3>{item.title}</h3>
-                      <span className="print-period">{item.period}</span>
+              <div className="print-entry-list">
+                {resumeExperience.map((item, index) => (
+                  <div key={item.title} className="print-entry-card">
+                    <div className="print-entry-top">
+                      <span className="print-entry-index">{String(index + 1).padStart(2, '0')}</span>
+                      <div className="print-entry-copy">
+                        <div className="print-row">
+                          <h3>{item.title}</h3>
+                          <span className="print-period">{item.period}</span>
+                        </div>
+                        <ul className="print-list">
+                          {item.bullets.map((bullet) => (
+                            <li key={bullet}>{bullet}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <ul className="print-list">
-                      {item.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
                   </div>
                 ))}
               </div>
@@ -169,14 +176,16 @@ export default function ResumeDocumentPage() {
 
             <section className="print-section">
               <h2>Selected Projects</h2>
-              <div className="space-y-4">
+              <div className="print-entry-list compact">
                 {resumeProjects.map((project, index) => (
-                  <div key={project.name}>
-                    {index > 0 ? <div className="print-divider" /> : null}
-                    <div className="pt-3">
-                      <h3>{project.name}</h3>
-                      <p className="print-stack">{project.stack}</p>
-                      <p>{project.description}</p>
+                  <div key={project.name} className="print-entry-card project-card">
+                    <div className="print-entry-top">
+                      <span className="print-entry-index">{String(index + 1).padStart(2, '0')}</span>
+                      <div className="print-entry-copy">
+                        <h3>{project.name}</h3>
+                        <p className="print-stack">{project.stack}</p>
+                        <p>{project.description}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
