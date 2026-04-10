@@ -1,0 +1,61 @@
+---
+title: 'Building Scalpel: A Middleware-Based Web Scraping Framework'
+date: '2026-04-10'
+summary: 'How I designed a production scraping framework with chain-of-responsibility middleware, auto-escalation from HTTP to headless browsers, and LLM-powered extraction.'
+---
+
+# Building Scalpel: A Middleware-Based Web Scraping Framework
+
+Most scraping tutorials stop at BeautifulSoup and requests. The real world has JavaScript-rendered pages, rate limits, proxy bans, and data that doesn't fit neatly into CSS selectors. Scalpel is the framework I built to handle all of that.
+
+## The Problem
+
+I kept rebuilding the same infrastructure across scraping projects: retry logic, proxy rotation, rate limiting, caching. Each project had its own version, each slightly different, each with its own bugs. I wanted a single framework where these concerns were composable and configurable without touching the core crawl loop.
+
+## Middleware Pipeline
+
+The core idea is borrowed from web server frameworks (Express, Django, FastAPI) but applied to scraping. Every request passes through a chain of middleware before fetching, and every response passes back through the same chain in reverse.
+
+The five middleware layers, in order:
+
+1. **CacheMiddleware** checks if a response exists on disk before making a network request. On the way back, it stores successful responses. TTL is configurable.
+
+2. **HeadersMiddleware** rotates user-agent strings from a pool and injects custom headers. A fresh identity on every request.
+
+3. **ProxyMiddleware** handles proxy rotation with health tracking. Each proxy has a failure counter. After N failures it enters a cooldown period. Three rotation strategies: round-robin, random, or sticky (same proxy per domain). When all proxies are in cooldown, it resets and tries again.
+
+4. **RetryMiddleware** catches failed responses and re-queues them with exponential backoff, capped at a configurable maximum delay.
+
+5. **ThrottleMiddleware** controls concurrency with asyncio semaphores. It enforces per-domain rate limits so one aggressive crawl doesn't get the entire IP banned.
+
+The middleware chain is built from YAML configuration at startup. You can enable, disable, or tune any layer without changing code.
+
+## Auto-Escalation
+
+Not every page needs a full browser. Static HTML is orders of magnitude faster to fetch with httpx (HTTP/2, connection pooling, async). But when the response body is mostly JavaScript bootstrap code with no real content, you need Playwright.
+
+Scalpel starts with httpx. If the response looks JS-rendered (checked via content heuristics), the engine automatically escalates to Playwright. This happens transparently. The middleware chain, extraction, and storage all work identically regardless of which fetcher produced the response.
+
+In practice, this means most pages are fetched in milliseconds. The expensive browser only spins up when it's genuinely needed. The stats tracker counts escalations so you can see how many pages required the heavy path.
+
+## LLM Extraction
+
+CSS selectors break when sites change their markup. XPath is powerful but brittle for the same reason. For pages where the structure is unpredictable, Scalpel can use an LLM to extract data.
+
+The LlmExtractor strips scripts, styles, and comments from the HTML, truncates to 50k characters (to fit within context windows), and sends the cleaned content to any OpenAI-compatible endpoint. That includes OpenAI itself, but also Ollama (local models), vLLM, or OpenRouter.
+
+The system prompt instructs the model to return a JSON array of objects. The extractor parses the response, handles markdown fences that models sometimes add despite instructions, normalizes single objects into arrays, and yields each item into the same storage pipeline as CSS/XPath extraction.
+
+The trade-off is speed and cost: LLM extraction is slower and costs tokens. But for pages with inconsistent markup or when you need to extract semantic meaning rather than positional data, it works where selectors cannot.
+
+## Storage Backends
+
+Extracted data flows into pluggable storage: JSONL (streaming, append-friendly), CSV (flat export), or SQLite (queryable). Each backend implements the same interface. Switching formats is a one-line YAML change.
+
+## What I Learned
+
+Building Scalpel taught me that the scraping problem is really a systems design problem. The actual fetching is trivial. The hard part is orchestrating retries, managing proxy health, respecting rate limits, and making the whole pipeline configurable without turning it into a configuration nightmare.
+
+The middleware pattern solved this cleanly. Each concern is isolated, testable, and composable. The engine doesn't know or care what middleware is in the chain. It just passes requests down and responses back up.
+
+The framework has been tested against 12,000+ pages across several projects. It's the infrastructure behind most of my scraping work now.
